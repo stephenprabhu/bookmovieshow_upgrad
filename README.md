@@ -1,3 +1,5 @@
+Upgrad React Project
+
 Steps to install
 
 1. Make sure npm is installed on your computer. Run "npm -v" to check
