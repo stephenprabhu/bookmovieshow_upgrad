@@ -11,7 +11,7 @@ const Controller = () => {
   return (
     <Router>
       <div className="main-container">
-        <Route
+      <Route
           exact
           path="/"
           render={(props) => <Home {...props} baseUrl={baseUrl} />}
