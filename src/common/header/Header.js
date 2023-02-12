@@ -69,7 +69,7 @@ const Header = (props) => {
         aria-describedby="modal-modal-description"
       >
       <div style={style}>
-        <Tabs value={activeTab} onChange={handleChange} aria-label="basic tabs example">
+        <Tabs value={activeTab} onChange={handleChange} style={{justifyContent:"center"}}>
           <Tab label="Log In"  {...a11yProps(0)} />
           <Tab label="Register"  {...a11yProps(1)} />
         </Tabs>
