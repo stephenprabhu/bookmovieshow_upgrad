@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from '../../common/header/Header'
+import Card from '../../Components/Card'
 import './Home.css'
 
 //HOME PAGE POSTERS AND FORM IS HERE
@@ -11,6 +12,10 @@ const Home = (props) => {
       <div className='heading'>
       Upcoming Movies
       </div>
+      <div className='Movies-Poster-Displayed'>
+      <Card/>
+      </div>
+
     </div>
   )
 }

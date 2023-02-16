@@ -1,13 +1,4 @@
 .heading{
-    /* it should be placed below the header of the page.
-
-The background colour of the heading should be #ff9999.
-
-The Upcoming Movies heading should have a padding of 8px from all the sides.
-
-The text of the heading should be centre-aligned.
-
-The font size of the text should be 1rem. */
 background-color:#ff9999 ;
 padding:8px ;
 text-align: center;

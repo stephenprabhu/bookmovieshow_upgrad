@@ -1,0 +1,4 @@
+.Card {
+	overflow-x:scroll;
+	 flex-wrap: nowrap; 
+}
