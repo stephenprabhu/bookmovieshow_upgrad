@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../../common/header/Header'
-import Card from '../../Components/Card'
+import MoviePoster from '../../Components/MoviePoster'
 import './Home.css'
 
 //HOME PAGE POSTERS AND FORM IS HERE
@@ -13,7 +13,7 @@ const Home = (props) => {
       Upcoming Movies
       </div>
       <div className='Movies-Poster-Displayed'>
-      <Card/>
+      <MoviePoster/>
       </div>
 
     </div>

@@ -1,0 +1,36 @@
+
+.MoviePoster {
+	overflow-x:scroll;
+	 flex-wrap: nowrap; 
+}
+.container{
+	display: flex;
+	margin: 16px;
+	width:100%;
+}
+#item1{
+	width:76%;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	
+}
+#item1 img{
+	cursor: pointer;
+}
+
+#item2{
+	border: 2px solid white;
+	width:24%;
+   min-width: 240;
+   max-width: 240;
+   
+  
+}
+.item Input :focus~label{
+ top :5px;
+ 
+}
+
+FormControl{
+	  margin: theme-spacing(1),
+	}

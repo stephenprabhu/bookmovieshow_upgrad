@@ -28,6 +28,7 @@ const ImageData=[
     {   id:6,
         poster_url:"Images/image6_nun.jpg",
         title:"The Nun"
-    },
+    }
+   
 ];
 export default ImageData;
