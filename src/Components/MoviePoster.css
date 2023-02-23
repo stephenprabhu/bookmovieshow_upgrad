@@ -1,36 +1,39 @@
 
-.MoviePoster {
+.Upcoming_Movies {
 	overflow-x:scroll;
 	 flex-wrap: nowrap; 
 }
 .container{
-	display: flex;
-	margin: 16px;
 	width:100%;
-}
-#item1{
-	width:76%;
-	flex-wrap: wrap;
-	justify-content: space-evenly;
+	display: flex;
+
+	
 	
 }
-#item1 img{
+#Released_Movies{
+	
+	flex-wrap:wrap;
+	width:76%;
+	justify-content: space-evenly;
+	margin: 16px;
+	align-self: flex-start;
+	
+}
+#Released_Movies img{
 	cursor: pointer;
 }
 
-#item2{
+#Filter_Movies{
+	
 	border: 2px solid white;
 	width:24%;
    min-width: 240;
    max-width: 240;
-   
+	margin: 16px;
   
 }
-.item Input :focus~label{
+.movie_name:focus~label{
  top :5px;
  
 }
 
-FormControl{
-	  margin: theme-spacing(1),
-	}
