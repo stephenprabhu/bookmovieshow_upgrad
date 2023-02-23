@@ -4,6 +4,7 @@ import './index.css';
 import 'typeface-roboto';
 import registerServiceWorker from './registerServiceWorker';
 import Controller from './screens/Controller';
+import UserProvider from './helpers/context/UserProvider';
 
-ReactDOM.render(<Controller />, document.getElementById('root'));
+ReactDOM.render(<UserProvider><Controller /></UserProvider>, document.getElementById('root'));
 registerServiceWorker();

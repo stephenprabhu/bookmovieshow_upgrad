@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { Button, TextField } from '@material-ui/core';
+import { APILoginUser } from '../../helpers/UserAPIs';
 
 const LoginForm = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
-    const onFormSubmit = (e) => {
+    const onFormSubmit = async(e) => {
         e.preventDefault();
-        alert("username: "+ username +" -- password: "+ password);
+        const user = await APILoginUser(username, password);
+        console.log(user);
     }
 
     return (

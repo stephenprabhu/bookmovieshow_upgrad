@@ -6,18 +6,16 @@ import './Home.css'
 //HOME PAGE POSTERS AND FORM IS HERE
 
 const Home = (props) => {
-  return (
-    <div>
-      <Header baseUrl={props.baseUrl} />
-      <div className='heading'>
-      Upcoming Movies
+    return (
+      <div>
+        <Header baseUrl={props.baseUrl} />
+        <div className='heading'> Upcoming Movies </div>
+        <div className='Movies-Poster-Displayed'>
+        <MoviePoster/>
+        </div>
+      
       </div>
-      <div className='Movies-Poster-Displayed'>
-      <MoviePoster/>
-      </div>
-
-    </div>
-  )
+    )
 }
 
 export default Home

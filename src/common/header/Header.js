@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Logo from "../../assets/logo.svg";
 import { Button, Typography, Modal, Tabs, Tab } from '@material-ui/core';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
+import UserContext from '../../helpers/context/user-context';
 
 //LOGIN, REGISTER AND LOGO IS HERE
 
@@ -12,7 +13,7 @@ const style = {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   width: 400,
-  bgcolor: "red",
+  backgroundColor:"white",
   border: '0.3px solid gray',
   boxShadow: 24,
   borderRadius:"5px",
@@ -46,6 +47,8 @@ function TabPanel(props) {
 const Header = (props) => {
   const [modalOpened, setModalOpened] = useState(false);
   const [activeTab, setActiveTab] = useState(0);
+  const ctx = useContext(UserContext);
+
 
   const handleChange = (event, newValue) => {
     setActiveTab(newValue);
@@ -57,16 +60,16 @@ const Header = (props) => {
         <img src={Logo} alt="logo" className='main-logo' />
       </div>
       <div>
-      <Button variant="contained" onClick={()=> setModalOpened(true)} style={{marginRight:"10px"}}>Login</Button>
-      <Button variant="contained" style={{marginRight:"10px"}} color="primary">Book Show</Button>
-      <Button variant="contained" >LogOut</Button>
+        <Button variant="contained" onClick={()=> setModalOpened(true)} style={{marginRight:"10px"}}>Login</Button> 
+        <Button variant="contained" style={{marginRight:"10px"}} color="primary">Book Show</Button>
+        <Button variant="contained" >LogOut</Button>
       </div>
       <Modal
-        className='auth-modal'
-        open={modalOpened}
-        onClose={()=> setModalOpened(false)}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+          className='auth-modal'
+          open={modalOpened}
+          onClose={()=> setModalOpened(false)}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
       >
       <div style={style}>
         <Tabs value={activeTab} onChange={handleChange} style={{justifyContent:"center"}}>
