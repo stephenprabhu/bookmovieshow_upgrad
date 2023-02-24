@@ -7,7 +7,7 @@ import RegisterForm from './RegisterForm';
 import UserContext from '../../helpers/context/user-context';
 import { APILogoutUser } from '../../helpers/UserAPIs';
 import './Header.css';
-
+import { Link } from 'react-router-dom';
 //LOGIN, REGISTER AND LOGO IS HERE
 
 const style = {
@@ -76,7 +76,7 @@ const Header = (props) => {
       </div>
       <div>
         {!ctx.auth ? <Button variant="contained" onClick={()=> setModalOpened(true)} style={{marginRight:"10px"}}>Login</Button> :""} 
-        {props.match && props.match.params &&  props.match.params.id ? <Button variant="contained" style={{marginRight:"10px"}} color="primary">Book Show</Button> :""}
+        {props.movieId ? <Link to={`/bookshow/${props.movieId}`}><Button  variant="contained" style={{marginRight:"10px"}} color="primary">Book Show</Button></Link> :""}
         {ctx.auth ?<Button variant="contained" type='button' onClick={onLogoutClicked}>LogOut</Button> :""}
       </div>
       <Modal

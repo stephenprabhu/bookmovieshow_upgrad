@@ -38,7 +38,7 @@ const Details = (props) => {
 
 	return (
 		<div>
-		<Header />
+			<Header movieId={props.match.params.id} />
 			<Link to="/" style={{textDecoration:"none"}}><Typography className="backHomeButton">{"< Back To Home"}</Typography></Link>
 			{movie ? <div className='detailsContainer'>
 				<div style={{width:"20%", padding:"10px"}}>
