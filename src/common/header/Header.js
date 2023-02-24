@@ -76,7 +76,7 @@ const Header = (props) => {
       </div>
       <div>
         {!ctx.auth ? <Button variant="contained" onClick={()=> setModalOpened(true)} style={{marginRight:"10px"}}>Login</Button> :""} 
-        <Button variant="contained" style={{marginRight:"10px"}} color="primary">Book Show</Button>
+        {props.match && props.match.params &&  props.match.params.id ? <Button variant="contained" style={{marginRight:"10px"}} color="primary">Book Show</Button> :""}
         {ctx.auth ?<Button variant="contained" type='button' onClick={onLogoutClicked}>LogOut</Button> :""}
       </div>
       <Modal

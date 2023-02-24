@@ -8,7 +8,7 @@ import './Home.css'
 const Home = (props) => {
     return (
       <div>
-        <Header baseUrl={props.baseUrl} />
+        <Header />
         <div className='heading'> Upcoming Movies </div>
         <div className='Movies-Poster-Displayed'>
         <MoviePoster/>
