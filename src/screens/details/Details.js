@@ -24,7 +24,6 @@ const Details = (props) => {
 		const res = await APIGetMovie(props.match.params.id);
 		if(res.movie){
 			setMovie(res.movie);
-			console.log(res.movie)
 		}else{
 			setError(res.error);
 		}
@@ -42,7 +41,7 @@ const Details = (props) => {
 			<Link to="/" style={{textDecoration:"none"}}><Typography className="backHomeButton">{"< Back To Home"}</Typography></Link>
 			{movie ? <div className='detailsContainer'>
 				<div style={{width:"20%", padding:"10px"}}>
-					<img src={movie.poster_url} width="95%" />
+					<img src={movie.poster_url} width="95%" alt={movie.title} />
 				</div>
 				<div  style={{flex: 1, padding:"10px"}}>
 					<Typography component="h2" variant='headline'>{movie.title}</Typography>
@@ -66,8 +65,8 @@ const Details = (props) => {
 					<Typography><strong>Artists: </strong></Typography>
 					<GridList cols={2}>
 						{movie.artists.map(artist => (
-							<GridListTile>
-								<img src={artist.profile_url} />
+							<GridListTile key={artist.id}>
+								<img src={artist.profile_url} alt={artist.first_name} />
 								<GridListTileBar title={artist.first_name +" "+ artist.last_name}>
 									
 								</GridListTileBar>
