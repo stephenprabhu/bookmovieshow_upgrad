@@ -1,7 +1,6 @@
-import React, {useContext, useState} from 'react'
+import React, { useState} from 'react'
 import { Button, TextField } from '@material-ui/core';
 import { APIRegisterUser } from '../../helpers/UserAPIs';
-import UserContext from '../../helpers/context/user-context';
 
 
 const RegisterForm = () => {
@@ -10,18 +9,28 @@ const RegisterForm = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [contact, setContact] = useState("");
-    const [error, setError]= useState(null);
+    const [message, setMessage]= useState(null);
+    const [status, setStatus] = useState(false);
+    const [error, setError] = useState(false);
 
-    const ctx = useContext(UserContext);
 
     const onFormSubmit = async(e) => {
         e.preventDefault();
-        const authToken = await APIRegisterUser(firstName, lastName, email, contact, password);
-        if(authToken){
-            localStorage.setItem('auth', authToken);
-            ctx.setAuth(authToken);
+        if(!firstName || !lastName || !email || !contact || !password){
+            setError(true);
+            return;
+        }
+        const data = await APIRegisterUser(firstName, lastName, email, contact, password);
+        if(data && data.id){
+            setStatus(true);
+            setMessage("Registration Successful. Please Login!")
         }else{
-            setError("There was an error logging into the website");
+            setStatus(false);
+            if(data && data.error){
+                setMessage(data.error);
+            }else{
+                setMessage("There was an unknown error creating your account");
+            }
         }
     }
 
@@ -29,11 +38,11 @@ const RegisterForm = () => {
 
     return (
         <div style={{textAlign:"center", margin:'20px auto'}}>
-            {error ? <span style={{color:"red"}}>{error}</span> :""}
+            {message ? <span style={{color:status ? "green" : "red", fontSize:"14px"}}>{message}</span> :""}
             <form onSubmit={onFormSubmit}>
                 <div style={{marginTop:"5px"}}>
                     <TextField
-                        error={firstName === "" ? true : false}
+                        error={error && firstName === ""}
                         id="standard-basic" 
                         value={firstName} 
                         label="First Name" 
@@ -44,7 +53,7 @@ const RegisterForm = () => {
                 </div>
                 <div style={{marginTop:"5px"}}>
                     <TextField
-                        error={lastName === "" ? true : false}
+                        error={error && lastName === ""}
                         id="standard-basic" 
                         value={lastName} 
                         label="Last Name" 
@@ -55,7 +64,7 @@ const RegisterForm = () => {
                 </div>
                 <div style={{marginTop:"5px"}}>
                     <TextField
-                        error={email === "" ? true : false}
+                        error={error && email === ""}
                         id="standard-basic" 
                         value={email} 
                         label="Email" 
@@ -66,7 +75,7 @@ const RegisterForm = () => {
                 </div>
                 <div style={{marginTop:"5px"}}>
                     <TextField
-                        error={password === "" ? true : false}
+                        error={error && password === "" ? true : false}
                         id="standard-basic" 
                         value={password} 
                         type="password"
@@ -78,7 +87,7 @@ const RegisterForm = () => {
                 </div>
                 <div style={{marginTop:"5px"}}>
                     <TextField 
-                        error={contact === "" ? true : false}
+                        error={error && contact === ""}
                         id="standard-basic" 
                         value={contact} 
                         label="Contact Number" 

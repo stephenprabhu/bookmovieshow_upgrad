@@ -1,0 +1,23 @@
+.main-header {
+    display: flex; 
+    justify-content: space-around; 
+    background-color:#222;
+    height: 36px; 
+    padding: 8px 32px 8px 16px;
+  }
+  
+  .main-header .main-logo {
+    background-color: #ff7f7f;
+    height: 35px;
+    animation: rotation 8s infinite linear;
+  }
+
+
+  @keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }

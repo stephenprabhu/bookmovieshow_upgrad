@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-
+//API FOR REGISTERING USER
+//PASS USER DATA. GET USER ID OR ERROR AS RESPONSE
 export const APIRegisterUser = async(first_name, last_name, email, mobile_number, password) => {
     try {
         const res = await axios.post("http://localhost:8085/api/v1/signup", {
@@ -14,17 +15,25 @@ export const APIRegisterUser = async(first_name, last_name, email, mobile_number
             "Content-Type":"application/json"
         });
         if (res && res.data) {
-            return res.data.id;
+            console.log(res.data);
+            return res.data;
         }
       } catch (e) {
-        console.log("ERROR: ", e);
+        if(e.response && e.response.data && e.response.data.message){
+            return {
+                error: e.response.data.message
+            };
+        }
       }
       return null;
 }
 
+//API FOR LOGGING IN USER
+//PASS EMAIL AND PASSWORD
+//GET ERROR OR FULL USER OBJECT + ACCESS TOKEN AS RESPONSE
 export const APILoginUser = async(email, password)=> {
     const param = window.btoa(`${email}:${password}`);
-    console.log(param);
+
     try{
         const res = await axios.post("http://localhost:8085/api/v1/auth/login", null, {
             headers: {
@@ -34,21 +43,36 @@ export const APILoginUser = async(email, password)=> {
             }
         });
         if (res && res.data) {
-            return res.data;
+            return {
+                accessToken: res.headers['access-token'],
+                user: res.data
+            }
         }
     }catch(e){
-        console.log("ERROR: ", e);
+
+        if(e.response && e.response.data && e.response.data.message){
+            return {
+                error: e.response.data.message
+            };
+        }
     }
     return null;
 }
 
+//API TO LOG OUT USER
+//PASS ACCESS TOKEN
+//LOGS OUT USER FROM SERVER
 export const APILogoutUser = async(token)=> {
     try{
         const res = await axios.post("http://localhost:8085/api/v1/auth/logout", null, {
-           
+            headers: {
+                Accept: "application/json;charset=UTF-8",
+                "Content-Type":"application/json",
+                authorization: `Bearer ${token}`
+            }
         });
         if (res && res.data) {
-            return res.data.id;
+            console.log(res.data)
         }
     }catch(e){
         console.log("ERROR: ", e);

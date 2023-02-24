@@ -11,8 +11,8 @@ const Controller = () => {
   const ctx = useContext(UserContext);
 
   useEffect(()=> {
-    if(localStorage.getItem("auth")){
-      ctx.setAuth(localStorage.getItem("auth"));
+    if(window.sessionStorage.getItem("access-token")){
+      ctx.setAuth(window.sessionStorage.getItem("access-token"));
     }
   },[]);
 
