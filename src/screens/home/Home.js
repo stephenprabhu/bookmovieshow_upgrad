@@ -172,7 +172,7 @@ function Home(props) {
           <div className="left">
             <GridList cellHeight={350} cols={4} className={classes.gridListMain}>
               {releasedMovies.map(movie => (
-                <GridListTile onClick={() => this.movieClickHandler(movie.id)} className="marginMovie" key={"grid" + movie.id}>
+                <GridListTile onClick={() => movieClickHandler(movie.id)} className="marginMovie" key={"grid" + movie.id}>
                   <img src={movie.poster_url} alt={movie.title} />
                   <GridListTileBar
                     title={movie.title}

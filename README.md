@@ -11,3 +11,6 @@ Steps to install
 
 For buttons, form inputs etc, the library used is:
 [Material UI](https://mui.com/material-ui/getting-started/overview/)
+
+##Document stating the role and responsibility of each of the group members is:
+Document.txt

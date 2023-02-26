@@ -1,0 +1,21 @@
+Project Name: 
+    BookMyMovie
+
+Project Members:
+    1. Stephen machado prabhu
+    2. Ritika Gupta
+
+Modules Handled By Stephen Machado Prabhu:
+* Header
+    * Logo, Login and BookShow buttons
+    * Register Login Modal
+* Details page
+    * Get Movie details
+    * Add BookShow Button
+
+Modules Handled By Ritika Gupta:
+* HomePage
+    * Upcoming movies
+    * Movie GridList
+    * Movies Filter section
+
